@@ -1,13 +1,11 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/general.module.css';
-import Link from 'next/link';
+import Link from 'next/link'
+import styles from '../../../styles/general.module.css'
 
-export default function Home() {
-  return (
-    <div>
-      <h2>Empleados</h2>
-      <p>Lista de empleados</p>
+export default function Remove({id}) {
+    return (
+        <div>
+      <h2>Activos</h2>
+      <p>Lista de activos</p>
       <div className={styles.list}>
         <h3>1</h3>
         <p>lealpastelin@gmail.com</p>
@@ -51,5 +49,17 @@ export default function Home() {
         </div>
       </div>
     </div>
-  );
+    )
 }
+
+export const getServerSideProps = async ({params}) => {
+    let { id } = params;
+    id = parseInt(id);
+
+    return {
+        props: {
+            id
+        }
+    }
+}
+
